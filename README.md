@@ -74,4 +74,4 @@ VALUES
 
 SELECT * FROM EmpresasFCT ORDER BY fechaContacto DESC;  
 
-![Captura 3: Consultar datos ordenados por fecha]()
+![Captura 3: Consultar datos ordenados por fecha](https://github.com/JavierP5/Tarea12SXE/blob/main/Captura%20desde%202025-02-10%2014-11-01.png)  
