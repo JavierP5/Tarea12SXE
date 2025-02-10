@@ -68,10 +68,10 @@ VALUES
     ('Empresa D', FALSE, 0, '2023-11-20'),  
     ('Empresa E', TRUE, 5, '2024-02-05');  
 
-📸 Captura: capturas/apartado2_insertar_datos.png
+![Captura 2: Insertar 5 registros](https://github.com/JavierP5/Tarea12SXE/blob/main/Captura%20desde%202025-02-10%2014-10-40.png)  
 
 ### 3️⃣ Consultar todos los datos de EmpresasFCT ordenados por fecha  
 
 SELECT * FROM EmpresasFCT ORDER BY fechaContacto DESC;  
 
-📸 Captura: capturas/apartado3_consulta_ordenada.png
+![Captura 3: Consultar datos ordenados por fecha]()
