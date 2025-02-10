@@ -56,8 +56,7 @@ CREATE TABLE EmpresasFCT (
     numAlumnos INTEGER,  
     fechaContacto DATE  
 );  
-
-📸 Captura: capturas/apartado1_creacion_tabla.png
+![Captura 1: Creación de la tabla](https://github.com/JavierP5/Tarea12SXE/blob/main/Captura%20desde%202025-02-10%2014-09-59.png)  
 
 ### 2️⃣ Insertar 5 registros en EmpresasFCT  
 
