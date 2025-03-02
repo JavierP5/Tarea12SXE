@@ -75,3 +75,57 @@ VALUES
 SELECT * FROM EmpresasFCT ORDER BY fechaContacto DESC;  
 
 ![Captura 3: Consultar datos ordenados por fecha](https://github.com/JavierP5/Tarea12SXE/blob/main/Captura%20desde%202025-02-10%2014-11-01.png)  
+
+### Apartado 4: Listado de contactos en Odoo de Tracy (código postal 95304)  
+
+SELECT  
+    res_partner.name AS Nombre,  
+    res_partner.city AS Ciudad,  
+    res_partner.zip AS CodigoPostal,  
+    res_partner.company_name AS NombreComercial  
+FROM res_partner  
+WHERE res_partner.city = 'Tracy'   
+  AND res_partner.zip = '95304'  
+  AND res_partner.is_company = FALSE  
+ORDER BY res_partner.company_name;  
+
+### Apartado 5: Empresas proveedoras con reembolsos  
+
+SELECT   
+    rp.name AS NombreEmpresa,   
+    am.name AS NumeroFactura,   
+    am.invoice_date AS FechaFactura,   
+    am.amount_total AS TotalConImpuestos,   
+    am.amount_untaxed AS TotalSinImpuestos  
+FROM account_move am  
+JOIN res_partner rp ON am.partner_id = rp.id  
+WHERE am.move_type = 'in_refund'  
+ORDER BY am.invoice_date DESC;  
+
+### Apartado 6: Empresas clientes con más de dos facturas de venta confirmadas  
+
+SELECT   
+    rp.name AS NombreEmpresa,   
+    COUNT(am.id) AS NumeroFacturas,   
+    SUM(am.amount_total) AS TotalConImpuestos,   
+    SUM(am.amount_untaxed) AS TotalSinImpuestos  
+FROM account_move am  
+JOIN res_partner rp ON am.partner_id = rp.id  
+WHERE am.move_type = 'out_invoice'  
+  AND am.state = 'posted'  
+GROUP BY rp.name  
+HAVING COUNT(am.id) > 2;  
+
+### Apartado 7: Actualizar correos electrónicos con nuevo dominio  
+
+UPDATE res_partner  
+SET email = REPLACE(email, '@bilbao.example.com', '@bilbao.bizkaia.neus')  
+WHERE email LIKE '%@bilbao.example.com';  
+
+### Apartado 8: Eliminar contactos de "Ready Mat" sin eliminar la empresa  
+
+DELETE FROM res_partner   
+WHERE company_name = 'Ready Mat'   
+  AND is_company = FALSE;  
+
+
